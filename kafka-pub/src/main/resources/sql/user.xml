@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.exam.producer.repository.UserRepository">
+    <select id="selectUserList" resultType="com.exam.producer.domain.User">
+ 		SELECT USERNO, USERNAME, USERAGE
+ 		FROM TB_USER
+ 	</select>
+
+    <insert id="insertUser" parameterType="com.exam.producer.domain.User">
+ 		INSERT INTO TB_USER(USERNO, USERNAME, USERAGE)
+ 		VALUES(#{userNo}, #{userName}, #{userAge})
+ 	</insert>
+
+</mapper>
