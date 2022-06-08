@@ -1,0 +1,26 @@
+kafka:
+    bootstrapAddress: localhost:9092
+mybatis:
+    configuration:
+        map-underscore-to-camel-case: true
+    mapper-locations: classpath:sql/*.xml
+    type-aliases-package: com.example.common.domain
+server:
+    port: 8090
+    servlet:
+        context-path: /sub
+spring:
+    datasource:
+        driverClassName: org.h2.Driver
+        initialization-mode: always
+        password: ''
+        schema: classpath:sql/kafka-ddl.sql
+        url: jdbc:h2:mem:subdb1
+        username: sa
+    h2:
+        console:
+            enabled: true
+            path: /console
+user:
+    topic:
+        name: user

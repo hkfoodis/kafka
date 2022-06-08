@@ -5,6 +5,7 @@ import com.exam.consumer.domain.UserSub;
 import com.exam.consumer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
 @Component
