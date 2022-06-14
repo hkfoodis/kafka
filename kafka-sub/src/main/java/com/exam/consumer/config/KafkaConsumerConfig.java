@@ -24,15 +24,16 @@ public class KafkaConsumerConfig {
     private String bootstrapAddress;
 
     public ConsumerFactory<String, UserSub> userConsumerFactory() {
-        // Pub에서 보낸 DTO의 패키지 구조에 상관 없이 전송 받을 수 있도록 TrustedPackage 설정
-        JsonDeserializer<UserSub> deserializer = new JsonDeserializer<>(UserSub.class);
+
+        JsonDeserializer<UserSub> deserializer = new JsonDeserializer<>(UserSub.class);             // Producer에서 보낸 Topic의 객체를 받을 객체를 지정
+        // Producer에서 지정한 클래스와 동일하지 않더라도 객체를 구성가능하게 하는 설정
         deserializer.setRemoveTypeHeaders(false);
         deserializer.addTrustedPackages("*");
-        deserializer.setUseTypeMapperForKey(true);
+        deserializer.setUseTypeMapperForKey(true);  // Consumer가 객체를 받을 때 Producer에서 보낸 객체의 키 값을 기준으로 받음
 
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "user");                                          // Consumer가 속한 Consumer 그룹의 ID 지정
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializer);
 

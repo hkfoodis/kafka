@@ -20,7 +20,6 @@ public class UserPublisher {
     public void publish(User user) {
         ListenableFuture<SendResult<String, User>> future = userKafkaTemplate.send(userTopicName, user);
 
-        // 아래의 콜백은 옵션 사항
         future.addCallback(new ListenableFutureCallback<SendResult<String, User>>() {
             @Override
             public void onSuccess(SendResult<String, User> result) {
