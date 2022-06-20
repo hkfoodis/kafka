@@ -9,4 +9,5 @@ import java.util.List;
 public interface UserRepository {
     int insertUser(User user) throws Exception;
     List<User> selectUserList() throws Exception;
+    void updateScore(User User);
 }

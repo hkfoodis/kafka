@@ -38,4 +38,8 @@ public class UserService {
 
         return ret;
     }
+
+    public void updateScore(User user) {
+        userRepository.updateScore(user);
+    }
 }

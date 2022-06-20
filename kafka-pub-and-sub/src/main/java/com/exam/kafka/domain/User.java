@@ -8,6 +8,7 @@ public class User {
     private Integer ko;
     private Integer math;
     private Integer eng;
+    private Double averageScore;
 
     public User(Long userNo, String userName, Long userAge) {
         this.userNo = userNo;
@@ -61,6 +62,14 @@ public class User {
 
     public void setEng(Integer eng) {
         this.eng = eng;
+    }
+
+    public Double getAverageScore() {
+        return averageScore;
+    }
+
+    public void setAverageScore(Double averageScore) {
+        this.averageScore = averageScore;
     }
 
     @Override

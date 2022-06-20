@@ -32,7 +32,6 @@ public class ApiService {
         try {
             return restTemplate.exchange(uri, method, getEntity(params), clazz).getBody();
         } catch (Exception exception) {
-            // TODO S3 에러 사례 작성 프로세스 개발
             try {
                 String json = objectMapper.writeValueAsString(params);
                 log.error("errors on api: {}, request params: {}", uri, json, exception);
@@ -46,7 +45,7 @@ public class ApiService {
     }
 
     public User calAvg(User user) {
-        String url = "";
+        String url = "http://localhost:8083/cal/avg";
 
         User response = execute(URI.create(url), HttpMethod.POST, user, User.class);
 

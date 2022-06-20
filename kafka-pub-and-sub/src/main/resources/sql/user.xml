@@ -14,4 +14,10 @@
  		VALUES(#{userNo}, #{userName}, #{userAge})
  	</insert>
 
+	<update id="updateScore">
+		UPDATE TB_USER
+		   SET average_score = #{averageScore}
+		 WHERE user_no = #{userNo}
+	</update>
+
 </mapper>
