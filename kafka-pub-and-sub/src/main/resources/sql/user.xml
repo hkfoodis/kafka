@@ -5,12 +5,12 @@
 
 <mapper namespace="com.exam.producer.repository.UserRepository">
     <select id="selectUserList" resultType="com.exam.producer.domain.User">
- 		SELECT USERNO, USERNAME, USERAGE
- 		FROM TB_USER
+ 		SELECT user_no, user_name, user_age
+ 		FROM tb_user
  	</select>
 
     <insert id="insertUser" parameterType="com.exam.producer.domain.User">
- 		INSERT INTO TB_USER(USERNO, USERNAME, USERAGE)
+ 		INSERT INTO tb_user(user_no, user_name, user_age)
  		VALUES(#{userNo}, #{userName}, #{userAge})
  	</insert>
 
